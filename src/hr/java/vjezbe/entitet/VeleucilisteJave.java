@@ -8,15 +8,17 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
         super(naziv, predmeti, profesori, studenti, ispiti);
     }
 
+    //DONE
     @Override
     public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(Ispit[] ispiti, Integer pismeni, Integer obrana, Student student) {
-           Ispit[] ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
-           BigDecimal prosjekOcjenaNaIspitima = odrediProsjekOcjenaNaIspitima(ispitiStudenta);
+
+            Ispit[] ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
+            BigDecimal prosjekOcjenaNaIspitima = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(ispiti, student));
 
            return (prosjekOcjenaNaIspitima.multiply(BigDecimal.valueOf(2)).add(BigDecimal.valueOf(obrana).add(BigDecimal.valueOf(pismeni)))).divide(BigDecimal.valueOf(4));
-
     }
 
+    //DONE
     @Override
     public Student odrediNajuspjesnijegStudentaNaGodini(Integer godina) {
 
@@ -25,7 +27,7 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
 
         for(int i = 0;i< getIspiti().length;i++){
             BigDecimal temp = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(getIspiti(), getStudenti()[i]));
-            if(temp.compareTo(najboljiProsjek) > 0){
+            if(temp.compareTo(najboljiProsjek) >= 0){
                 indexStudenta = i;
                 najboljiProsjek = temp;
             }

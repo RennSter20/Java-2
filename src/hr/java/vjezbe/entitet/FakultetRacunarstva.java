@@ -8,6 +8,7 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
         super(naziv, predmeti, profesori, studenti, ispiti);
     }
 
+    //DONE
     @Override
     public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(Ispit[] ispiti, Integer pismeni, Integer diplomski, Student student) {
         Ispit[] ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
@@ -17,29 +18,33 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
 
     }
 
+    //DONE
     @Override
     public Student odrediNajuspjesnijegStudentaNaGodini(Integer godina) {
 
-        int broj = 0;
         Integer[] brojIzvrsnihOcjena = new Integer[getStudenti().length];
         for(int i = 0;i< getIspiti().length;i++) brojIzvrsnihOcjena[i] = 0;
 
-        int lastIndex = 0;
+
         for(Ispit ispit : getIspiti()){
             for(int i = 0;i< getStudenti().length;i++){
                 if(ispit.getStudent() == getStudenti()[i] && ispit.getOcjena() == 5){
                     brojIzvrsnihOcjena[i]++;
-                    lastIndex = i;
                 }
             }
         }
 
+        int lastIndex = 0;
+        for(int i = brojIzvrsnihOcjena.length-1;i>-1;i--){
+            if(brojIzvrsnihOcjena[i] == 5){
+                lastIndex = i;
+            }
+        }
+
         return getStudenti()[lastIndex];
-
-
-
     }
 
+    //DONE
     @Override
     public Student odrediStudentaZaRektorovuNagradu() {
 
@@ -52,8 +57,12 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
         Integer najbolji = 0;
 
         for(int i = 1;i< getStudenti().length;i++){
-            if(prosjeci[i].compareTo(prosjeci[najbolji]) > 0 && getStudenti()[i].getDatumRodjenja().isAfter(getStudenti()[najbolji])){
+            if(prosjeci[i].compareTo(prosjeci[najbolji]) > 0){
                 najbolji = i;
+            }else if(prosjeci[i].compareTo(prosjeci[najbolji]) == 0){
+                if(getStudenti()[i].getDatumRodjenja().isAfter(getStudenti()[i].getDatumRodjenja())){
+                    najbolji = i;
+                }
             }
         }
         
