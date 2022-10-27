@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d8b0317b-e151-4878-8f62-0e3b240dce42" name="Changes" comment="FakultetRacunarstva fixed.">
+    <list default="true" id="d8b0317b-e151-4878-8f62-0e3b240dce42" name="Changes" comment="Last commit.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hr/java/vjezbe/entitet/FakultetRacunarstva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hr/java/vjezbe/entitet/FakultetRacunarstva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hr/java/vjezbe/entitet/VeleucilisteJave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hr/java/vjezbe/entitet/VeleucilisteJave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hr/java/vjezbe/entitet/Visokoskolska.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hr/java/vjezbe/entitet/Visokoskolska.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/vjezbe/glavna/Glavna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hr/java/vjezbe/glavna/Glavna.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,13 +24,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/renat/IdeaProjects/Rak-2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/renat/IdeaProjects/Rak-2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\renat\IdeaProjects\Rak-2\src" />
@@ -71,7 +69,13 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1666870716076</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Last commit.">
+      <created>1666873204784</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1666873204784</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,6 +92,28 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final commit" />
     <MESSAGE value="FakultetRacunarstva fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="FakultetRacunarstva fixed." />
+    <MESSAGE value="Last commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Last commit." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/hr/java/vjezbe/glavna/Glavna.java</url>
+          <line>186</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/hr/java/vjezbe/glavna/Glavna.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="hr.java.vjezbe.entitet.Predmet" memberName="studenti" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

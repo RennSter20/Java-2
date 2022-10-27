@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Glavna {
@@ -91,13 +92,9 @@ public class Glavna {
             unos.nextLine();
         }
 
-        for(int i = 0;i<BROJ_STUDENTA;i++){
-            studenti[i] = unosStudent(unos, i);
-        }
-
         Predmet[] predmeti = new Predmet[BROJ_PREDMETA];
         for(int i = 0;i<BROJ_PREDMETA;i++){
-            predmeti[i] = new Predmet(tempSifra[i], tempNaziv[i], tempECTS[i], profesori[tempOdabirProfesora[i]-1], studenti);
+            predmeti[i] = new Predmet(tempSifra[i], tempNaziv[i], tempECTS[i], profesori[tempOdabirProfesora[i]-1], null);
         }
 
         return predmeti;
@@ -142,6 +139,23 @@ public class Glavna {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.'T'HH:mm");
         LocalDateTime tempDatum = LocalDate.parse(unos.nextLine(), dateFormat).atStartOfDay();
 
+        Student[] studentiNaPredmetu = null;
+        if(predmeti[tempOdabirPredmet - 1].getStudenti() == null){
+
+            predmeti[tempOdabirPredmet - 1].setStudenti(new Student[1]);
+            studentiNaPredmetu = predmeti[tempOdabirPredmet - 1].getStudenti();
+            studentiNaPredmetu[0] = studenti[tempOdabirStudenta - 1];
+
+        }else{
+
+            studentiNaPredmetu = Arrays.copyOf(studentiNaPredmetu, studentiNaPredmetu.length + 1);
+            studentiNaPredmetu[studentiNaPredmetu.length - 1] = studenti[tempOdabirStudenta - 1];
+
+        }
+
+
+        predmeti[tempOdabirPredmet - 1].setStudenti(studentiNaPredmetu);
+
         return new Ispit(predmeti[tempOdabirPredmet-1], studenti[tempOdabirStudenta-1], tempOcjena, tempDatum, new Dvorana(tempDvorana, tempZgrada));
     }
 
@@ -157,6 +171,11 @@ public class Glavna {
         }
 
         predmeti = unosPredmet(unos, profesori, studenti);
+
+        //Unos studenata
+        for(int i = 0;i<BROJ_STUDENTA;i++){
+            studenti[i] = unosStudent(unos, i);
+        }
 
         for(int i = 0;i<BROJ_ISPITA;i++){
             ispiti[i] = unosIspit(unos, i, predmeti, studenti);
