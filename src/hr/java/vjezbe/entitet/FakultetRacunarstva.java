@@ -36,7 +36,7 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
 
         int lastIndex = 0;
         for(int i = brojIzvrsnihOcjena.length-1;i>-1;i--){
-            if(brojIzvrsnihOcjena[i] == 5){
+            if(brojIzvrsnihOcjena[i] > brojIzvrsnihOcjena[lastIndex]){
                 lastIndex = i;
             }
         }

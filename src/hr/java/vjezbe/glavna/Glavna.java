@@ -248,13 +248,5 @@ public class Glavna {
             odabirStudenataZaNagrade(unos, ustanove[i]);
         }
 
-
-
-
-
-
-
-
-
     }
 }
