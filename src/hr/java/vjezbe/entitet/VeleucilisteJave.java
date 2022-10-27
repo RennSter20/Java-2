@@ -12,17 +12,15 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
     //DONE
     @Override
     public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(Ispit[] ispiti, Integer pismeni, Integer obrana, Student student) {
-
-            Ispit[] ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
-            BigDecimal prosjekOcjenaNaIspitima = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(ispiti, student));
-
-           return (prosjekOcjenaNaIspitima.multiply(BigDecimal.valueOf(2)).add(BigDecimal.valueOf(obrana).add(BigDecimal.valueOf(pismeni)))).divide(BigDecimal.valueOf(4));
+        BigDecimal prosjekOcjenaNaIspitima = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(ispiti, student));
+        return (prosjekOcjenaNaIspitima.multiply(BigDecimal.valueOf(2)).add(BigDecimal.valueOf(obrana).add(BigDecimal.valueOf(pismeni)))).divide(BigDecimal.valueOf(4));
     }
 
     //DONE
     @Override
     public Student odrediNajuspjesnijegStudentaNaGodini(Integer godina) {
-        Integer indexStudenta = 0;BigDecimal najboljiProsjek = BigDecimal.valueOf(0);
+        Integer indexStudenta = 0;
+        BigDecimal najboljiProsjek = BigDecimal.valueOf(0);
 
         for(int i = 0;i< getIspiti().length;i++){
 

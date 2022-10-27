@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 
 public interface Visokoskolska {
-    //KORISTI FILTRIRAJ ISPITE PO STUDENTU
+
     BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta (Ispit[] ispiti, Integer pismeni, Integer obrana, Student student);
 
     //DONE

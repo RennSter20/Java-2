@@ -11,9 +11,7 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
     //DONE
     @Override
     public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(Ispit[] ispiti, Integer pismeni, Integer diplomski, Student student) {
-        Ispit[] ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
-        BigDecimal prosjekOcjenaNaIspitima = odrediProsjekOcjenaNaIspitima(ispitiStudenta);
-
+        BigDecimal prosjekOcjenaNaIspitima = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(ispiti, student));
         return (prosjekOcjenaNaIspitima.multiply(BigDecimal.valueOf(3)).add(BigDecimal.valueOf(diplomski).add(BigDecimal.valueOf(pismeni)))).divide(BigDecimal.valueOf(5));
 
     }
@@ -36,7 +34,7 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
 
         int lastIndex = brojIzvrsnihOcjena.length-1;
         for(int i = brojIzvrsnihOcjena.length-1;i>-1;i--){
-            if(brojIzvrsnihOcjena[i] > brojIzvrsnihOcjena[lastIndex]){
+            if(brojIzvrsnihOcjena[i] >= brojIzvrsnihOcjena[lastIndex]){
                 lastIndex = i;
             }
         }
@@ -55,7 +53,6 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
         }
 
         Integer najbolji = 0;
-
         for(int i = 1;i< getStudenti().length;i++){
             if(prosjeci[i].compareTo(prosjeci[najbolji]) > 0){
                 najbolji = i;
