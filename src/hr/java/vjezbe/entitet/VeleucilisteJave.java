@@ -1,6 +1,7 @@
 package hr.java.vjezbe.entitet;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska{
 
@@ -21,19 +22,18 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
     //DONE
     @Override
     public Student odrediNajuspjesnijegStudentaNaGodini(Integer godina) {
-
-        Integer indexStudenta = 0;
-        BigDecimal najboljiProsjek = BigDecimal.valueOf(0);
+        Integer indexStudenta = 0;BigDecimal najboljiProsjek = BigDecimal.valueOf(0);
 
         for(int i = 0;i< getIspiti().length;i++){
+
             BigDecimal temp = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(getIspiti(), getStudenti()[i]));
+
             if(temp.compareTo(najboljiProsjek) >= 0){
                 indexStudenta = i;
                 najboljiProsjek = temp;
             }
-        }
+      }
 
         return getStudenti()[indexStudenta];
-
     }
 }
